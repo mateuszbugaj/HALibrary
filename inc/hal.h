@@ -13,9 +13,15 @@ typedef enum {
     HIGH = 1
 } PinLevel;
 
+typedef enum {
+  PULLUP_DISABLE,
+  PULLUP_ENABLE  
+} PullupConfig;
+
 typedef struct {
     volatile uint8_t* port;
     uint8_t pin;
+    PullupConfig pullup;
 } HALPin;
 
 void hal_pin_direction(HALPin pin, PinDirection direction);
